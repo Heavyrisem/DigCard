@@ -9,7 +9,7 @@ class DB {
         this.DB_Client.connect();
         console.log("Database Connected");
         
-        this.test();
+        // this.test();
     }
 
     async test() {

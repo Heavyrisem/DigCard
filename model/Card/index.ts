@@ -7,8 +7,6 @@ export interface Card_T {
     name: string,
     job: string,
     email: string,
-    phone: string,
-    URL: string,
     author: string
 }
 
@@ -21,7 +19,7 @@ export enum ERROR {
 export default {
     Create: (card: Card_T): Promise<{id?: string, err?: ERROR}> => {
         return new Promise(async resolve => {
-            const KEYS = ["name", "job", "email", "author", "phone", "URL"];
+            const KEYS = ["name", "job", "email", "author"];
             for (const NM of KEYS) if (!card[NM]) return resolve({err: ERROR.INVAILD_PARAMS});
 
             const db = DB.GetConnection();

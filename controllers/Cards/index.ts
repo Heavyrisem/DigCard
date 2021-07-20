@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 import Card, { Card_T, ERROR } from '../../model/Card';
 
 function ErrorHandler (req: Request, res: Response, err?: ERROR) {
+    console.log(req.params);
+    console.log(req.body);
     switch (err) {
         case ERROR.DB_FAIL: res.status(500).send({err: "Database Error"}); break;
         case ERROR.INVAILD_PARAMS: res.status(400).send({err: "Invaild Params"}); break;
